@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Nicolas JEUDY
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <record id="learning_base_product_template_form" model="ir.ui.view">
+        <field name="name">product.template.learning.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="event_ok" position="after">
+                    <field name="is_learning"/>
+            </group>
+            <page name="sales" position="after">
+              <page string="Training" attrs="{'invisible':[('is_training','=',False)]}" name="training">
+                <div name="training_data">
+                    <separator string="Certificate"/>
+                    <field name="certificate" widget="html"/>
+                    <separator string="Goal"/>
+                    <field name="goal" widget="html"/>
+                    <separator string="Description"/>
+                    <field name="description" widget="html"/>
+                    <separator string="Content"/>
+                    <field name="content" widget="html"/>
+                    <separator string="Methodology"/>
+                    <field name="methodology" widget="html"/>
+                    <separator string="Validate"/>
+                    <field name="validate" widget="html"/>
+                    <separator string="Public"/>
+                    <field name="public" widget="html"/>
+                    <separator string="Prerequisite"/>
+                    <field name="prerequisite" widget="html"/>
+                </div>
+              </page>
+            </page>
+        </field>
+    </record>
+</odoo>
