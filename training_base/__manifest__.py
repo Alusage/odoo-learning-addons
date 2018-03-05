@@ -13,10 +13,12 @@
         'base',
         'product',
         'event',
+        'event_sale',
+        'partner_firstname',
     ],
     'data': [
-        'security/product_template.xml',
         'views/product_template.xml',
+        'views/event_event.xml',
     ],
     'demo': [
     ],

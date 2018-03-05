@@ -9,8 +9,8 @@
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
             <field name="event_ok" position="after">
-                    <field name="is_learning"/>
-            </group>
+                    <field name="is_training"/>
+            </field>
             <page name="sales" position="after">
               <page string="Training" attrs="{'invisible':[('is_training','=',False)]}" name="training">
                 <div name="training_data">
