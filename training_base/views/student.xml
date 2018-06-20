@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="kanban_view_student" model="ir.ui.view">
+        <field name="name">Student Kanban</field>
+        <field name="model">learning.student</field>
+        <field name="arch" type="xml">
+            <kanban class="o_res_partner_kanban">
+                <field name="id"/>
+                <field name="image"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click o_res_partner_kanban">
+                            <div class="o_kanban_image">
+                                <t t-if="record.image.value">
+                                    <img t-att-src="kanban_image('learning.student', 'image', record.id.value)"/>
+                                </t>
+                                <t t-if="!record.image.value">
+                                    <img t-att-src='_s + "/base/static/src/img/avatar.png"'/>
+                                </t>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <h4>
+                                    <a type="learningen">
+                                        <field name="name"/>
+                                        <t t-if="record.lastname.raw_value">
+                                            <field name="lastname"/>
+                                        </t>
+                                    </a>
+                                </h4>
+                                <ul>
+                                    <li t-if="record.contact_address.raw_value">
+                                        <field name="contact_address"/>
+                                    </li>
+                                    <li t-if="record.phone.raw_value">
+                                        <field name="phone"/>
+                                    </li>
+                                    <li t-if="record.mobile.raw_value">
+                                        <field name="mobile"/>
+                                    </li>
+                                    <li t-if="record.email.raw_value">
+                                        <a t-attf-href="mailto:#{record.email.value}">
+                                            <field name="email"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="record.lang.raw_value">
+                                        <field name="lang"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_learning_student_tree" model="ir.ui.view">
+        <field name="name">learning.student.tree</field>
+        <field name="model">learning.student</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree string="Student">
+                <field name="title"/>
+                <field name="name"/>
+                <field name="lastname"/>
+                <field name="nationality"/>
+                <field name="lang"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_learning_student_form" model="ir.ui.view">
+        <field name="name">learning.student.form</field>
+        <field name="model">learning.student</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <div class="oe_title">
+                        <field name="already_partner"/>
+                        <label string="Already Partner"/>
+                        <field name="partner_id" placeholder="Partner" options="{'no_create_edit': True}" attrs="{'required':[('already_partner','=',True)],'invisible': [('already_partner','=', False)]}"/>
+                    </div>
+                    <field name="image" widget="image" class="oe_left oe_avatar"/>
+                    <div class="oe_title">
+                        <h3>
+                            <field name="title" placeholder="Title"/>
+                        </h3>
+                        <h1>
+                            <table>
+                                <tr>
+                                    <td style="padding-right:10px;">
+                                        <field name="name" required="1" placeholder="First Name"/>
+                                    </td>
+                                    <td style="padding-right:10px;">
+                                        <field name="lastname" placeholder="Last Name" required="1"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </h1>
+                    </div>
+                    <notebook colspan="4">
+                        <page name="personal_information" string="Personal Information">
+                            <group col="4" colspan="4" name="personal_detail">
+                                <field name="gender" required="1"/>
+                                <field name="birth_date" required="1"/>
+                                <field name="nationality"/>
+                                <field name="visa_info"/>
+                                <field name="lang"/>
+                                <field name="category_id"/>
+                                <field name="user_id" string="User" readonly="1"/>
+                                <field name="email" required="1"/>
+                            </group>
+                            <group string="Address Detail" name="address">
+                                <label for="type"/>
+                                <div name="div_type">
+                                    <field class="oe_inline" name="type"/>
+                                </div>
+                                <label for="street" string="Address"/>
+                                <div name="div_address">
+                                    <field name="street" placeholder="Street..."/>
+                                    <field name="street2" placeholder="Street2"/>
+                                    <div class="address_format">
+                                        <field name="city" placeholder="City" style="width: 40%%"/>
+                                        <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%%" options='{"no_open": True}'/>
+                                        <field name="zip" placeholder="ZIP" style="width: 20%%"/>
+                                    </div>
+                                    <field name="country_id" placeholder="Country" class="oe_no_button" options='{"no_open": True}'/>
+                                </div>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_learning_student_search" model="ir.ui.view">
+        <field name="name">learning.student.search</field>
+        <field name="model">learning.student</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <search string="Student">
+                <field name="name"/>
+                <newline/>
+                <group expand="0" string="Group By...">
+                    <filter name="nationality" string="Nationality" domain="[]" context="{'group_by':'nationality'}"/>
+                    <filter name="language" string="Language" domain="[]" context="{'group_by':'lang'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

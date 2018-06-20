@@ -13,24 +13,35 @@
             </field>
             <page name="sales" position="after">
               <page string="Training" attrs="{'invisible':[('is_training','=',False)]}" name="training">
+                <group name="Informations">
+                  <group>
+                    <field name="domain_id"/>
+                    <field name="contact_id"/>
+                  </group>
+                  <group>
+                    <field name="price_info"/>
+                    <field name="duration_info"/>
+                  </group>
+                </group>
                 <div name="training_data">
-                    <separator string="Certificate"/>
-                    <field name="certificate" widget="html"/>
-                    <separator string="Goal"/>
+                  <separator string="Presentation"/>
+                  <field name="content" widget="html"/>
+                    <separator string="Objectifs"/>
                     <field name="goal" widget="html"/>
-                    <separator string="Description"/>
+                    <separator string="Contenu"/>
                     <field name="description" widget="html"/>
-                    <separator string="Content"/>
-                    <field name="content" widget="html"/>
-                    <separator string="Methodology"/>
-                    <field name="methodology" widget="html"/>
-                    <separator string="Validate"/>
-                    <field name="validate" widget="html"/>
+                    <separator string="Nos plus"/>
+                    <field name="our_value" widget="html"/>
                     <separator string="Public"/>
                     <field name="public" widget="html"/>
-                    <separator string="Prerequisite"/>
-                    <field name="prerequisite" widget="html"/>
+                    <separator string="Modalité"/>
+                    <field name="methodology" widget="html"/>
+                    <separator string="Validation"/>
+                    <field name="validate" widget="html"/>
                 </div>
+                <group string="Subjects" name="subject">
+                            <field name="subject_ids" nolabel="1"/>
+                        </group>
               </page>
             </page>
         </field>

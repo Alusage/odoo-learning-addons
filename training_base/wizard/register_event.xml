@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Nicolas JEUDY
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+    -->
+
+<odoo>
+    <!-- BUG: Correct a bug with readonly field bypass -->
+    <record id="view_event_registration_editor_form" model="ir.ui.view">
+        <field name="name">registration.editor.form.inherit</field>
+        <field name="model">registration.editor</field>
+        <field name="inherit_id" ref="event_sale.view_event_registration_editor_form"/>
+        <field name="arch" type="xml">
+            <field name="event_ticket_id" position="attributes">
+              <attribute name="force_save">1</attribute>
+            </field>
+            <field name="registration_id" position="attributes">
+              <attribute name="force_save">1</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
