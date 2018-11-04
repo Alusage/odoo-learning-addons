@@ -107,7 +107,7 @@ class HostelRoom(models.Model):
     internet = fields.Boolean('Internet Access')
     refrigerator = fields.Boolean('Refrigerator')
     microwave = fields.Boolean('Microwave')
-    student_ids = fields.One2many('learning.student', 'room_id',
+    student_ids = fields.One2many('hostel.student', 'room_id',
                                   string="Students")
 
     _sql_constraints = [('room_no_unique', 'unique(room_no)',

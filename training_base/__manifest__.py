@@ -18,6 +18,7 @@
         'website_event_sale',
     ],
     'data': [
+        'security/training_security.xml',
         'views/product_template.xml',
         'views/event_event.xml',
         'wizard/register_event.xml',
