@@ -5,15 +5,16 @@
             <field name="name">student_from_event_registration.form</field>
             <field name="model">wizard.student_from_event_registration</field>
             <field name="arch" type="xml">
-                <form string="Registration">
+                <form string="Registration" name="Registration">
+                  <group>
                       <div class="oe_title">
                           <field name="already_partner"/>
-                          <label string="Already Partner"/>
+                          <label for="already_partner" string="Already Partner"/>
                           <field name="partner_id" placeholder="Partner" options="{'no_create_edit': True}" attrs="{'required':[('already_partner','=',True)],'invisible': [('already_partner','=', False)]}"/>
                       </div>
                       <div class="oe_title">
                           <field name="already_student"/>
-                          <label string="Already Student"/>
+                          <label for="already_student" string="Already Student"/>
                           <field name="student_id" placeholder="Student" options="{'no_create_edit': True}" attrs="{'required':[('already_student','=',True)],'invisible': [('already_student','=', False)]}"/>
                       </div>
                       <field name="image" widget="image" class="oe_left oe_avatar"/>
@@ -35,9 +36,9 @@
                         <field name="event_registration_id" invisible="1"/>
                       </group>
 
-                      <notebook colspan="4">
+                      <notebook name="info">
                           <page name="personal_information" string="Personal Information" attrs="{'invisible':[('already_student', '=', True)]}">
-                              <group col="4" colspan="4" name="personal_detail">
+                              <group name="personal_detail">
                                   <field name="gender" attrs="{'required':[('already_student', '=', False)]}"/>
                                   <field name="birth_date" attrs="{'required':[('already_student', '=', False)]}"/>
                                   <field name="nationality"/>
@@ -70,6 +71,7 @@
                         <button string="Apply" name="action_create_student" type="object" class="btn-primary"/>
                         <button string="Skip" class="btn-default" special="cancel"/>
                     </footer>
+                  </group>
                 </form>
             </field>
         </record>

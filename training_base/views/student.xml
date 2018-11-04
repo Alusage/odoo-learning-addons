@@ -12,10 +12,10 @@
                         <div t-attf-class="oe_kanban_global_click o_res_partner_kanban">
                             <div class="o_kanban_image">
                                 <t t-if="record.image.value">
-                                    <img t-att-src="kanban_image('learning.student', 'image', record.id.value)"/>
+                                    <img alt="photo" t-att-src="kanban_image('learning.student', 'image', record.id.value)"/>
                                 </t>
                                 <t t-if="!record.image.value">
-                                    <img t-att-src='_s + "/base/static/src/img/avatar.png"'/>
+                                    <img alt="photo" t-att-src='_s + "/base/static/src/img/avatar.png"'/>
                                 </t>
                             </div>
                             <div class="oe_kanban_details">
@@ -77,7 +77,7 @@
                 <sheet>
                     <div class="oe_title">
                         <field name="already_partner"/>
-                        <label string="Already Partner"/>
+                        <label for="already_partner" string="Already Partner"/>
                         <field name="partner_id" placeholder="Partner" options="{'no_create_edit': True}" attrs="{'required':[('already_partner','=',True)],'invisible': [('already_partner','=', False)]}"/>
                     </div>
                     <field name="image" widget="image" class="oe_left oe_avatar"/>
