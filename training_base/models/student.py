@@ -13,7 +13,7 @@ class LearningStudent(models.Model):
     # gender = fields.Selection(
     #     [('m', 'Male'), ('f', 'Female'),
     #      ('o', 'Other')], 'Gender')
-    birth_date = fields.Date('Birth Date', required=True)
+    birth_date = fields.Date('Birth Date', required=False)
     gender = fields.Selection(
         [('male', 'Male'), ('female', 'Female')], 'Gender', required=True)
     nationality = fields.Many2one('res.country', 'Nationality')

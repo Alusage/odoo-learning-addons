@@ -23,5 +23,30 @@ class ProductTemplate(models.Model):
     duration_info = fields.Char('Duration Info')
     price_info = fields.Char('Price info')
     duration_hour = fields.Float('Duration in hour(s)')
-
+    cr_id = fields.Many2one('learning.cr', string="CR")
+    training_code_id = fields.Many2one('learning.training.code')
     subject_ids = fields.Many2many('learning.subject', string='Subject(s)')
+
+
+class LearningCR(models.Model):
+    _name = 'learning.cr'
+    _parent_name = "parent_id"
+    _parent_store = True
+
+    name = fields.Char('Name')
+    code = fields.Char('Code', translate=False)
+    parent_id = fields.Many2one('learning.cr', 'Parent CR', index=True, ondelete='cascade')
+    parent_path = fields.Char(index=True)
+    child_id = fields.One2many('learning.cr', 'parent_id', 'Child CR')
+
+    @api.constrains('parent_id')
+    def _check_cr_recursion(self):
+        if not self._check_recursion():
+            raise ValidationError(_('You cannot create recursive CR.'))
+        return True
+
+class LearningTrainingCode(models.Model):
+    _name = 'learning.training.code'
+
+    name = fields.Char('Name')
+    code = fields.Char('Code', translate=False)
