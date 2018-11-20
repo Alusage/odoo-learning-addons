@@ -11,6 +11,7 @@ class EventEvent(models.Model):
 
     duration_week = fields.Integer('Duration in week(s)')
     duration_hour = fields.Float('Duration in hour(s)')
+    training_id = fields.Many2one('product.template', string='Training', domain=[('is_training', '=', True)])
 
 
 class EventRegistration(models.Model):
