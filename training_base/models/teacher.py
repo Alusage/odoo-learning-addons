@@ -8,9 +8,9 @@ class LearningTeacher(models.Model):
 
     partner_id = fields.Many2one(
         'res.partner', 'Partner', required=True, ondelete="cascade")
-    birth_date = fields.Date('Birth Date', required=True)
+    birth_date = fields.Date('Birth Date', required=False)
     gender = fields.Selection(
-        [('male', 'Male'), ('female', 'Female')], 'Gender', required=True)
+        [('male', 'Male'), ('female', 'Female')], 'Gender', required=False)
     nationality = fields.Many2one('res.country', 'Nationality')
     visa_info = fields.Char('Visa Info', size=64)
     id_number = fields.Char('ID Card Number', size=64)

@@ -11,7 +11,7 @@ week_days = [(calendar.day_name[0], _(calendar.day_name[0])),
              (calendar.day_name[6], _(calendar.day_name[6]))]
 
 
-class OpSession(models.Model):
+class LearningSession(models.Model):
     _name = "learning.timesession"
     _inherit = ["mail.thread"]
     _description = "Time Sessions"
@@ -40,6 +40,7 @@ class OpSession(models.Model):
         [('draft', 'Draft'), ('confirm', 'Confirmed'),
          ('done', 'Done'), ('cancel', 'Canceled')],
         'Status', default='draft')
+    user_id = fields.Many2one('res.users', string='Manager', index=True, track_visibility='onchange', track_sequence=2, default=lambda self: self.env.user)
     user_ids = fields.Many2many(
         'res.users', compute='_compute_batch_users',
         store=True, string='Users')

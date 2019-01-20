@@ -13,6 +13,7 @@
                     <field name="classroom_id"/>
                     <field name="start_datetime"/>
                     <field name="end_datetime"/>
+                    <field name="user_id"/>
                     <field name="state"/>
                 </tree>
             </field>
@@ -56,6 +57,7 @@
                             <field name="batch_id" options='{"no_open": True}'
                                    context="{'course_id': course_id,'get_parent_batch':1}"/>
                             <field name="subject_id"/>
+                            <field name="user_id"/>
                             <field name="classroom_id"/>
                             <field name="start_datetime"/>
                             <field name="end_datetime"/>
@@ -78,10 +80,12 @@
             <field name="arch" type="xml">
                 <search string="Sessions">
                     <field name="teacher_id" select="True"/>
+                    <field name="user_id" select="True"/>
                     <field name="course_id" select="True"/>
                     <field name="batch_id" select="True"/>
                     <field name="timing_id" select="True"/>
                     <field name="subject_id" select="True"/>
+                    <field name="classroom_id" select="True"/>
                     <field name="start_datetime" select="True"/>
                     <field name="end_datetime" select="True"/>
                     <field name="type" select="True"/>
@@ -89,8 +93,8 @@
                     <filter string="Today" name="filter_session_today"
                             domain="[('start_datetime', '&gt;=', time.strftime('%%Y-%%m-%%d 00:00:00')),('start_datetime', '&lt;=', time.strftime('%%Y-%%m-%%d 23:59:59'))]"/>
                     <group expand="0" string="Group By...">
-                        <filter string="Faculty" name="group_by_session_faculty_id"
-                                domain="[]" context="{'group_by':'faculty_id'}"/>
+                        <filter string="Teacher" name="group_by_session_teacher_id"
+                                domain="[]" context="{'group_by':'teacher_id'}"/>
                         <filter string="Course" name="group_by_session_course_id"
                                 domain="[]" context="{'group_by':'course_id'}"/>
                         <filter string="Batch" name="group_by_session_batch_id"
@@ -187,7 +191,7 @@
                                         </li>
                                     </div>
                                     <div class="oe_kanban_bottom_right">
-                                        <img alt="Faculty"
+                                        <img alt="teacher"
                                              t-att-src="kanban_image('learning.teacher', 'image', record.teacher_id.raw_value)"
                                              t-att-title="record.teacher_id.value" width="24" height="24"
                                              class="oe_kanban_avatar"/>
@@ -201,14 +205,15 @@
             </field>
         </record>
 
-        <record id="view_op_session_pivot" model="ir.ui.view">
-            <field name="name">op.session.pivot</field>
-            <field name="model">op.session</field>
+        <record id="view_learning_timesession_pivot" model="ir.ui.view">
+            <field name="name">learning.timesession.pivot</field>
+            <field name="model">learning.timesession</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <pivot string="Session Analysis">
                     <field name="name"/>
-                    <field name="faculty_id"/>
+                    <field name="teacher_id"/>
+                    <field name="user_id"/>
                     <field name="timing_id"/>
                     <field name="course_id"/>
                     <field name="batch_id"/>
@@ -221,43 +226,43 @@
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="act_open_op_session_view">
+        <record model="ir.actions.act_window" id="act_open_learning_timesession_view">
             <field name="name">Sessions</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">op.session</field>
+            <field name="res_model">learning.timesession</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,calendar</field>
-            <field name="search_view_id" ref="view_op_session_search"/>
+            <field name="search_view_id" ref="view_learning_timesession_search"/>
             <field name="domain">[]</field>
             <field name="context">{}</field>
         </record>
 
-        <record model="ir.actions.act_window.view" id="act_open_op_session_view_form">
-            <field name="act_window_id" ref="act_open_op_session_view"/>
+        <record model="ir.actions.act_window.view" id="act_open_learning_timesession_view_form">
+            <field name="act_window_id" ref="act_open_learning_timesession_view"/>
             <field name="sequence" eval="20"/>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="view_op_session_form"/>
+            <field name="view_id" ref="view_learning_timesession_form"/>
         </record>
 
-        <record model="ir.actions.act_window.view" id="act_open_op_session_view_tree">
-            <field name="act_window_id" ref="act_open_op_session_view"/>
+        <record model="ir.actions.act_window.view" id="act_open_learning_timesession_view_tree">
+            <field name="act_window_id" ref="act_open_learning_timesession_view"/>
             <field name="sequence" eval="10"/>
             <field name="view_mode">tree</field>
-            <field name="view_id" ref="view_op_session_tree"/>
+            <field name="view_id" ref="view_learning_timesession_tree"/>
         </record>
 
-        <record model="ir.actions.act_window.view" id="act_open_op_session_view_kanban">
-            <field name="act_window_id" ref="act_open_op_session_view"/>
+        <record model="ir.actions.act_window.view" id="act_open_learning_timesession_view_kanban">
+            <field name="act_window_id" ref="act_open_learning_timesession_view"/>
             <field name="sequence" eval="5"/>
             <field name="view_mode">kanban</field>
             <field name="view_id" ref="view_session_kanban"/>
         </record>
 
-        <record model="ir.actions.act_window" id="act_open_op_session_view_pivot">
+        <record model="ir.actions.act_window" id="act_open_learning_timesession_view_pivot">
             <field name="name">Session Analysis Pivot</field>
-            <field name="res_model">op.session</field>
+            <field name="res_model">learning.timesession</field>
             <field name="view_mode">pivot</field>
-            <field name="view_id" ref="view_op_session_pivot"/>
+            <field name="view_id" ref="view_learning_timesession_pivot"/>
         </record>
     </data>
 </odoo>

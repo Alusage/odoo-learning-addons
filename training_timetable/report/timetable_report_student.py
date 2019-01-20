@@ -1,12 +1,15 @@
+import logging
 import calendar
 import pytz
 import time
 from datetime import datetime
 from odoo import models, api, _, fields, tools
 
+_logger = logging.getLogger(__name__)
+
 
 class ReportTimetableStudentGenerate(models.AbstractModel):
-    _name = "report.openeducat_timetable.report_timetable_student_generate"
+    _name = "report.training_timetable.report_timetable_student_generate"
     _description = "Timetable Student Report"
 
     @api.multi
@@ -48,7 +51,8 @@ class ReportTimetableStudentGenerate(models.AbstractModel):
 
     def get_object(self, data):
         data_list = []
-        for timetable_obj in self.env['op.session'].browse(
+        _logger.debug("DATA get_object: %s" % data)
+        for timetable_obj in self.env['learning.timesession'].browse(
                 data['time_table_ids']):
             oldDate = pytz.UTC.localize(
                 fields.Datetime.from_string(timetable_obj.start_datetime))
@@ -71,6 +75,7 @@ class ReportTimetableStudentGenerate(models.AbstractModel):
     def _get_report_values(self, docids, data=None):
         model = self.env.context.get('active_model')
         docs = self.env[model].browse(self.env.context.get('active_id'))
+        _logger.debug("DATA: %s" % data)
         docargs = {
             'doc_ids': self.ids,
             'doc_model': model,
@@ -80,4 +85,5 @@ class ReportTimetableStudentGenerate(models.AbstractModel):
             'get_object': self.get_object,
             'get_heading': self.get_heading,
         }
+        _logger.debug("docargs: %s" % docargs)
         return docargs

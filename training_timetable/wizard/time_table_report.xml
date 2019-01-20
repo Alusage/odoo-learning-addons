@@ -15,8 +15,8 @@
                                 <field name="end_date" />
                             </group>
                             <group col="4" colspan="4">
-                                <field name="faculty_id"
-                                    attrs="{'required':[('state','=','faculty')],'invisible':[('state','!=','faculty')]}" />
+                                <field name="teacher_id"
+                                    attrs="{'required':[('state','=','teacher')],'invisible':[('state','!=','teacher')]}" />
                             </group>
                             <group col="4" colspan="4">
                                 <field name="course_id"
