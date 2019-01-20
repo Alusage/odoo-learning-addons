@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_timetable_root"
+                  name="TimeTables"
+                  sequence="90"
+                  web_icon="openeducat_timetable,static/description/icon.png"/>
+
+        <menuitem id="menu_timetable"
+                  string="Timetable"
+                  parent="menu_timetable_root"
+                  sequence="10" action="acten_session_view"/>
+
+        <!-- Configuration Menu -->
+        <menuitem id="menu_timetable_config"
+                  name="Configuration"
+                  parent="menu_timetable_root"
+                  sequence="40"/>
+
+        <menuitem id="menu_period"
+                  string="Timing"
+                  parent="menu_timetable_config"
+                  sequence="10"
+                  action="acten_timing_view"/>
+
+        <menuitem id="menu_generate_time_table"
+                  string="Generate Timetable"
+                  parent="menu_timetable_config"
+                  sequence="20"
+                  action="acten_generate_time_table_view"/>
+
+        <menuitem id="menu_generate_time_table_report"
+                  string="Generate Timetable Report"
+                  parent="menu_timetable_config"
+                  sequence="30"
+                  action="acten_time_table_report_view"/>
+
+        <menuitem id="menu_session_analysis_pivot"
+                  name="Session Analysis"
+                  parent="menu_timetable_root"
+                  sequence="50"
+                  action="acten_session_view_pivot"/>
+    </data>
+</odoo>

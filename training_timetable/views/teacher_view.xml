@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_teacher_form_session_inherit" model="ir.ui.view">
+            <field name="name">teacher.form.session.inherit</field>
+            <field name="model">learning.teacher</field>
+            <field name="inherit_id" ref="training_base.view_learning_teacher_form"/>
+            <field name="priority" eval="9"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="time_table" string="Sessions">
+                        <field name="session_ids" colspan="4"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>
