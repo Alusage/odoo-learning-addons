@@ -9,3 +9,4 @@ from . import subject
 from . import teacher
 from . import account_invoice
 from . import batch
+from . import classroom
