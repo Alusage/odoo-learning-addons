@@ -8,3 +8,4 @@ from . import learning_domain
 from . import subject
 from . import teacher
 from . import account_invoice
+from . import batch

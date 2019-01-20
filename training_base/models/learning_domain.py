@@ -18,3 +18,10 @@ class LearningDomain(models.Model):
         if not self._check_recursion():
             raise ValidationError(_('You cannot create recursive domain.'))
         return True
+
+
+class LearningLevel(models.Model):
+    _name = 'learning.level'
+
+    name = fields.Char('Name', translate=False)
+    learning_id = fields.Many2one('product.template', string='Learning', domain=[('is_training', '=', True)])

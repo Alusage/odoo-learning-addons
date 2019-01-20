@@ -17,7 +17,12 @@ class EventEvent(models.Model):
 class EventRegistration(models.Model):
     _inherit = 'event.registration'
 
+    is_training = fields.Boolean(related='event_id.training_id.is_training', readonly="1", store=True)
     student_id = fields.Many2one('learning.student', string="Student")
+    current_level = fields.Many2one('learning.level', string="Current Level")
+    prepared_level = fields.Many2one('learning.level', string="Prepared Level")
+    batch_id = fields.Many2one(
+        'learning.batch', 'Group')
 
     @api.multi
     def confirm_registration(self):

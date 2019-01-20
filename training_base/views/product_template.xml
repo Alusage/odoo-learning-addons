@@ -11,6 +11,17 @@
             <field name="event_ok" position="after">
                     <field name="is_training"/>
             </field>
+            <button name="toggle_active" position="before">
+                <button name="356"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-pencil-square-o"
+                            context="{'search_default_training_id': active_id, 'default_training_id': active_id}"
+                            attrs="{'invisible': [('count_session', '=', 0)]}">
+                            <field name="count_session" widget="statinfo" string="Sessions"/>
+                </button>
+            </button>
+
             <page name="sales" position="after">
               <page string="Training" attrs="{'invisible':[('is_training','=',False)]}" name="training">
                 <group name="Informations">
@@ -22,6 +33,9 @@
                     <field name="price_info"/>
                     <field name="duration_info"/>
                   </group>
+                </group>
+                <group>
+                  <field name="learning_level" widget="many2many_tags"/>
                 </group>
                 <div name="training_data">
                   <separator string="Presentation"/>

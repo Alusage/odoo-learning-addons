@@ -25,7 +25,14 @@ class ProductTemplate(models.Model):
     duration_hour = fields.Float('Duration in hour(s)')
     cr_id = fields.Many2one('learning.cr', string="CR")
     training_code_id = fields.Many2one('learning.training.code')
-    subject_ids = fields.Many2many('learning.subject', string='Subject(s)')
+    subject_ids = fields.One2many('learning.subject', 'product_id', string='Subject(s)')
+    learning_level = fields.One2many('learning.level', 'learning_id', string="Level(s)")
+
+    count_session = fields.Integer('Nb session', compute="_compute_session", readonly=True)
+
+    def _compute_session(self):
+        for record in self:
+            record.count_session = len(self.env['event.event'].search([('training_id', '=', record.id)]))
 
 
 class LearningCR(models.Model):
@@ -44,6 +51,7 @@ class LearningCR(models.Model):
         if not self._check_recursion():
             raise ValidationError(_('You cannot create recursive CR.'))
         return True
+
 
 class LearningTrainingCode(models.Model):
     _name = 'learning.training.code'

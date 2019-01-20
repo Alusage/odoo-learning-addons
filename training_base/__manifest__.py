@@ -20,6 +20,7 @@
     'data': [
         'security/training_security.xml',
         'views/product_template.xml',
+        'views/batch.xml',
         'views/event_event.xml',
         'wizard/register_event.xml',
         'wizard/teacher_create_employee_wizard_view.xml',
