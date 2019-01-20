@@ -4,7 +4,7 @@
         <menuitem id="menu_timetable_root"
                   name="TimeTables"
                   sequence="90"
-                  web_icon="openeducat_timetable,static/description/icon.png"/>
+                  web_icon="training_timetable,static/description/icon.png"/>
 
         <menuitem id="menu_timetable"
                   string="Timetable"

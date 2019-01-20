@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="view_training_attendance_register_tree" model="ir.ui.view">
-            <field name="name">training.attendance.register.tree</field>
-            <field name="model">training.attendance.register</field>
+            <field name="name">learning.attendance.register.tree</field>
+            <field name="model">learning.attendance.register</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <tree string="Attendance Register">
@@ -16,8 +16,8 @@
         </record>
 
         <record id="view_training_attendance_register_form" model="ir.ui.view">
-            <field name="name">training.attendance.register.form</field>
-            <field name="model">training.attendance.register</field>
+            <field name="name">learning.attendance.register.form</field>
+            <field name="model">learning.attendance.register</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <form string="Attendance Register">
@@ -39,8 +39,8 @@
         </record>
 
         <record id="view_training_attendance_register_search" model="ir.ui.view">
-            <field name="name">training.attendance.register.search</field>
-            <field name="model">training.attendance.register</field>
+            <field name="name">learning.attendance.register.search</field>
+            <field name="model">learning.attendance.register</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <search string="Attendance Register">
@@ -66,7 +66,7 @@
         <record model="ir.actions.act_window" id="act_open_training_attendance_register_view">
             <field name="name">Attendance Registers</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">training.attendance.register</field>
+            <field name="res_model">learning.attendance.register</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="view_training_attendance_register_search"/>

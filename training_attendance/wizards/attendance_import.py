@@ -25,7 +25,7 @@ class LearningAllStudentWizard(models.TransientModel):
                 absent_list = [
                     x.student_id for x in sheet_browse.attendance_line]
                 all_student_search = self.env['learning.student'].search(
-                    [('course_detail_ids.course_id', '=',
+                    [('course_detail_ids.event_id', '=',
                       sheet_browse.register_id.course_id.id),
                      ('course_detail_ids.batch_id', '=',
                       sheet_browse.register_id.batch_id.id)])

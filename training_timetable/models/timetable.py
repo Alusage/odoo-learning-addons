@@ -103,7 +103,7 @@ class LearningSession(models.Model):
 
     @api.model
     def create(self, values):
-        res = super(OpSession, self).create(values)
+        res = super(LearningSession, self).create(values)
         mfids = res.message_follower_ids
         partner_val = []
         partner_ids = []
@@ -163,7 +163,7 @@ class LearningSession(models.Model):
     @api.multi
     @api.model
     def write(self, vals):
-        data = super(OpSession,
+        data = super(LearningSession,
                      self.with_context(check_move_validity=False)).write(vals)
         for session in self:
             if session.state not in ('draft', 'done'):

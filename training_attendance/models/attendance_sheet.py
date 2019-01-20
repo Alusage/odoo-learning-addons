@@ -31,7 +31,7 @@ class LearningAttendanceSheet(models.Model):
     batch_id = fields.Many2one(
         'learning.batch', 'Batch', related='register_id.batch_id', store=True,
         readonly=True)
-    session_id = fields.Many2one('learning.session', 'Session')
+    session_id = fields.Many2one('learning.timesession', 'Session')
     attendance_date = fields.Date(
         'Date', required=True, default=lambda self: fields.Date.today(),
         track_visibility="onchange")

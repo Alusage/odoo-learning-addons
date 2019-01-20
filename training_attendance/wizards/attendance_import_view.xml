@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record model="ir.ui.view" id="training_all_student_form">
-            <field name="name">training.all.student.form</field>
-            <field name="model">training.all.student</field>
+            <field name="name">learning.all.student.form</field>
+            <field name="model">learning.all.student</field>
             <field name="arch" type="xml">
                 <form string="Add Student(s)">
                     <sheet>
@@ -14,7 +14,7 @@
                         <group colspan="4" string="Add Absent Student(s)">
                             <field name="student_ids" string="Add Absent Student(s)"
                                    nolabel="1"
-                                   domain="[('course_detail_ids.course_id','=',course_id),('course_detail_ids.batch_id','=',batch_id)]"/>
+                                   domain="[('course_detail_ids.event_id','=',course_id),('course_detail_ids.batch_id','=',batch_id)]"/>
                         </group>
                     </sheet>
                     <footer groups="base.group_user">
@@ -28,7 +28,7 @@
         <record model="ir.actions.act_window" id="act_open_training_attendance_import_view">
             <field name="name">Attendance Sheet Import</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">training.all.student</field>
+            <field name="res_model">learning.all.student</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
