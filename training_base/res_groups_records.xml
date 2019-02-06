@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="res_groups_batiment_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Batiment</field>
+    </record>
+    <record id="res_groups_coordination_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="implied_ids" eval="[(4, ref('training_base.res_groups_gestionnaire_r0'))]"/>
+      <!-- MISSING xml_id for field implied_ids (many2many to odoo@172.18.0.2:8069) for those ids: 54, 60, 55, 57, 61 (db: odoo@172.18.0.2:8069) -->
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Coordination</field>
+    </record>
+    <record id="res_groups_culturel_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Culturel</field>
+    </record>
+    <record id="res_groups_direction_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Direction</field>
+    </record>
+    <record id="res_groups_financier_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="implied_ids" eval="[(4, ref('training_base.res_groups_gestionnaire_r0'))]"/>
+      <!-- MISSING xml_id for field implied_ids (many2many to odoo@172.18.0.2:8069) for those ids: 56, 53, 57, 61 (db: odoo@172.18.0.2:8069) -->
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Financier</field>
+    </record>
+    <record id="res_groups_hbergement_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Hébergement</field>
+    </record>
+    <record id="res_groups_informatique_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Informatique</field>
+    </record>
+    <record id="res_groups_marketing_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Marketing</field>
+    </record>
+    <record id="res_groups_mdiathque_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Médiathèque</field>
+    </record>
+    <record id="res_groups_personnel_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Personnel</field>
+    </record>
+    <record id="res_groups_planning_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Planning</field>
+    </record>
+    <record id="res_groups_ple_ingnierie_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Pôle Ingénierie</field>
+    </record>
+    <record id="res_groups_scolarit_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="implied_ids" eval="[(4, ref('training_base.res_groups_gestionnaire_r0'))]"/>
+      <!-- MISSING xml_id for field implied_ids (many2many to odoo@172.18.0.2:8069) for those ids: 56, 54, 57, 61, 59 (db: odoo@172.18.0.2:8069) -->
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Scolarité</field>
+    </record>
+    <record id="res_groups_secrtariat_de_direction_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">Secrétariat de direction</field>
+    </record>
+    <record id="res_groups_tice_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">TICE</field>
+    </record>
+    <record id="res_groups_communication_r0" model="res.groups">
+      <field name="color">0</field>
+      <field name="share" eval="False"/>
+      <field name="category_id" ref="training_base.ir_module_category_cla_r0"/>
+      <!-- one2many field 'model_access' managed on the ir.model.access side -->
+      <field name="name">communication</field>
+    </record>
+  </data>
+</openerp>

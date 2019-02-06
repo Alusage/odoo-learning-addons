@@ -1,23 +1,20 @@
-# Copyright 2018 Nicolas JEUDY
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+# -*- coding: utf-8 -*-
 
 {
-    'name': 'Training Base',
-    'summary': """
-        Base module to add training management to odoo""",
-    'version': '11.0.1.0.2',
-    'license': 'AGPL-3',
-    'author': 'Nicolas JEUDY, Odoo Community Association (OCA)',
-    'website': 'https://www.pandachi.fr',
-    'depends': [
+    "name": 'Training Base',
+    "version": "11.0.1.0.2",
+    "depends": [
+        '__export__',
         'base',
-        'product',
         'event',
         'event_sale',
         'partner_firstname',
+        'product',
         'website_event_sale',
     ],
-    'data': [
+    "author": "Nicolas JEUDY, Odoo Community Association (OCA)",
+    "installable": True,
+    "data": [
         'security/training_security.xml',
         'views/product_template.xml',
         'views/batch.xml',
@@ -29,7 +26,10 @@
         'views/student.xml',
         'views/subject.xml',
         'views/teacher_view.xml',
-    ],
-    'demo': [
+        'ir_actions_act_window_records.xml',
+        'ir_ui_menu_records.xml',
+        'ir_module_category_records.xml',
+        'ir_model_access_records.xml',
+        'res_groups_records.xml',
     ],
 }

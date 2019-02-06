@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="ir_actions_act_window_formation_r0" model="ir.actions.act_window">
+      <field name="domain">[('is_training', '=', 1)]</field>
+      <field name="help">&lt;p class="o_view_nocontent_smiling_face"&gt;Créer un nouveau article&lt;/p&gt;</field>
+      <field name="res_model">product.template</field>
+      <field name="view_type">form</field>
+      <field name="binding_type">action</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">kanban,tree,form,activity</field>
+      <!-- one2many field 'view_ids' managed on the ir.actions.act_window.view side -->
+      <field name="name">Formation</field>
+      <field name="multi" eval="False"/>
+      <field name="target">current</field>
+      <field name="auto_search" eval="True"/>
+      <field name="res_id">0</field>
+      <field name="filter" eval="False"/>
+      <field name="limit">80</field>
+      <field name="context">{}</field>
+    </record>
+    <record id="ir_actions_act_window_session_r0" model="ir.actions.act_window">
+      <field name="help">&lt;p class="o_view_nocontent_smiling_face"&gt;Créer un nouveau document&lt;/p&gt;</field>
+      <field name="res_model">event.event</field>
+      <field name="view_type">form</field>
+      <field name="binding_type">action</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">kanban,calendar,tree,form,pivot</field>
+      <!-- one2many field 'view_ids' managed on the ir.actions.act_window.view side -->
+      <field name="name">Session</field>
+      <field name="multi" eval="False"/>
+      <field name="target">current</field>
+      <field name="auto_search" eval="True"/>
+      <field name="res_id">0</field>
+      <field name="filter" eval="False"/>
+      <field name="limit">80</field>
+      <field name="context">{"search_default_upcoming":1, "search_default_training_filter": 1}</field>
+    </record>
+    <record id="ir_actions_act_window_cr_r0" model="ir.actions.act_window">
+      <field name="res_model">learning.cr</field>
+      <field name="view_type">form</field>
+      <field name="binding_type">action</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">tree,form</field>
+      <!-- one2many field 'view_ids' managed on the ir.actions.act_window.view side -->
+      <field name="name">CR</field>
+      <field name="multi" eval="False"/>
+      <field name="target">current</field>
+      <field name="auto_search" eval="True"/>
+      <field name="res_id">0</field>
+      <field name="filter" eval="False"/>
+      <field name="limit">80</field>
+      <field name="context">{}</field>
+    </record>
+    <record id="ir_actions_act_window_domaine_r0" model="ir.actions.act_window">
+      <field name="res_model">learning.domain</field>
+      <field name="view_type">form</field>
+      <field name="binding_type">action</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">tree,form</field>
+      <!-- one2many field 'view_ids' managed on the ir.actions.act_window.view side -->
+      <field name="name">Domaine</field>
+      <field name="multi" eval="False"/>
+      <field name="target">current</field>
+      <field name="auto_search" eval="True"/>
+      <field name="res_id">0</field>
+      <field name="filter" eval="False"/>
+      <field name="limit">80</field>
+      <field name="context">{}</field>
+    </record>
+    <record id="ir_actions_act_window_code_r0" model="ir.actions.act_window">
+      <field name="res_model">learning.training.code</field>
+      <field name="view_type">form</field>
+      <field name="binding_type">action</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">tree,form</field>
+      <!-- one2many field 'view_ids' managed on the ir.actions.act_window.view side -->
+      <field name="name">Code</field>
+      <field name="multi" eval="False"/>
+      <field name="target">current</field>
+      <field name="auto_search" eval="True"/>
+      <field name="res_id">0</field>
+      <field name="filter" eval="False"/>
+      <field name="limit">80</field>
+      <field name="context">{}</field>
+    </record>
+  </data>
+</openerp>

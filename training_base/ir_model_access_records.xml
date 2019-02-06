@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="ir_model_access_utilisateur_r0" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_cr"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">cr_read</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="False"/>
+      <field name="perm_write" eval="False"/>
+      <field name="perm_create" eval="False"/>
+      <field name="group_id" ref="training_base.res_groups_utilisateur_r0"/>
+    </record>
+    <record id="ir_model_access_utilisateur_r1" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_domain"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">domain_read</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="False"/>
+      <field name="perm_write" eval="False"/>
+      <field name="perm_create" eval="False"/>
+      <field name="group_id" ref="training_base.res_groups_utilisateur_r0"/>
+    </record>
+    <record id="ir_model_access_utilisateur_r2" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_training_code"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">training_code_read</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="False"/>
+      <field name="perm_write" eval="False"/>
+      <field name="perm_create" eval="False"/>
+      <field name="group_id" ref="training_base.res_groups_utilisateur_r0"/>
+    </record>
+    <record id="ir_model_access_utilisateur_r3" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_subject"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">learning_subject_read</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="False"/>
+      <field name="perm_write" eval="False"/>
+      <field name="perm_create" eval="False"/>
+      <field name="group_id" ref="training_base.res_groups_utilisateur_r0"/>
+    </record>
+    <record id="ir_model_access_utilisateur_r4" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_teacher"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">learning_teacher_read</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="False"/>
+      <field name="perm_write" eval="False"/>
+      <field name="perm_create" eval="False"/>
+      <field name="group_id" ref="training_base.res_groups_utilisateur_r0"/>
+    </record>
+    <record id="ir_model_access_gestionnaire_r0" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_cr"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">cr_all</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="True"/>
+      <field name="perm_write" eval="True"/>
+      <field name="perm_create" eval="True"/>
+      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+    </record>
+    <record id="ir_model_access_gestionnaire_r1" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_domain"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">domain_all</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="True"/>
+      <field name="perm_write" eval="True"/>
+      <field name="perm_create" eval="True"/>
+      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+    </record>
+    <record id="ir_model_access_gestionnaire_r2" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_training_code"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">training_code_all</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="True"/>
+      <field name="perm_write" eval="True"/>
+      <field name="perm_create" eval="True"/>
+      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+    </record>
+    <record id="ir_model_access_gestionnaire_r3" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_subject"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">learning_subject_all</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="True"/>
+      <field name="perm_write" eval="True"/>
+      <field name="perm_create" eval="True"/>
+      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+    </record>
+    <record id="ir_model_access_gestionnaire_r4" model="ir.model.access">
+      <field name="model_id" ref="training_base.model_learning_teacher"/>
+      <field name="perm_read" eval="True"/>
+      <field name="name">learning_teacher_all</field>
+      <field name="active" eval="True"/>
+      <field name="perm_unlink" eval="True"/>
+      <field name="perm_write" eval="True"/>
+      <field name="perm_create" eval="True"/>
+      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+    </record>
+  </data>
+</openerp>

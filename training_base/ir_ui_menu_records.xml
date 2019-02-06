@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <menuitem id="ir_ui_menu_inscriptions_r0" name="Inscription(s)" sequence="10"/>
+    <menuitem id="ir_ui_menu_formation_r0" name="Formation" parent="ir_ui_menu_inscriptions_r0" sequence="10"/>
+    <menuitem id="ir_ui_menu_formation_r1" name="Formation" parent="ir_ui_menu_formation_r0" sequence="10" action="ir_actions_act_window_formation_r0"/>
+    <menuitem id="ir_ui_menu_session_r0" name="Session" parent="ir_ui_menu_formation_r0" sequence="10" action="ir_actions_act_window_session_r0"/>
+    <menuitem id="ir_ui_menu_cr_r0" name="CR" sequence="10" action="ir_actions_act_window_cr_r0"/>
+    <menuitem id="ir_ui_menu_domaine_r0" name="Domaine" sequence="10" action="ir_actions_act_window_domaine_r0"/>
+    <menuitem id="ir_ui_menu_code_r0" name="Code" sequence="10" action="ir_actions_act_window_code_r0"/>
+    <menuitem id="ir_ui_menu_configuration_r0" name="Configuration" parent="ir_ui_menu_inscriptions_r0" sequence="99"/>
+  </data>
+</openerp>
