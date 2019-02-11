@@ -22,7 +22,7 @@
         'wizard/time_table_report.xml',
         'wizard/session_confirmation.xml',
         'views/timetable_templates.xml',
-        'menus/menu.xml',
+        #'menus/menu.xml',
     ],
     'demo': [
         # 'demo/timing_demo.xml',

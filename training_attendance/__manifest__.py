@@ -19,7 +19,7 @@
         'views/attendance_line_view.xml',
         'report/student_attendance_report.xml',
         'report/report_menu.xml',
-        'menus/menu.xml'
+        #'menus/menu.xml'
     ],
     'test': [
         # 'test/res_users_test.yml',

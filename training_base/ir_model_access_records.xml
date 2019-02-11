@@ -59,7 +59,7 @@
       <field name="perm_unlink" eval="True"/>
       <field name="perm_write" eval="True"/>
       <field name="perm_create" eval="True"/>
-      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+      <field name="group_id" ref="training_base.group_training_administration"/>
     </record>
     <record id="ir_model_access_gestionnaire_r1" model="ir.model.access">
       <field name="model_id" ref="training_base.model_learning_domain"/>
@@ -69,7 +69,7 @@
       <field name="perm_unlink" eval="True"/>
       <field name="perm_write" eval="True"/>
       <field name="perm_create" eval="True"/>
-      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+      <field name="group_id" ref="training_base.group_training_administration"/>
     </record>
     <record id="ir_model_access_gestionnaire_r2" model="ir.model.access">
       <field name="model_id" ref="training_base.model_learning_training_code"/>
@@ -79,7 +79,7 @@
       <field name="perm_unlink" eval="True"/>
       <field name="perm_write" eval="True"/>
       <field name="perm_create" eval="True"/>
-      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+      <field name="group_id" ref="training_base.group_training_administration"/>
     </record>
     <record id="ir_model_access_gestionnaire_r3" model="ir.model.access">
       <field name="model_id" ref="training_base.model_learning_subject"/>
@@ -89,7 +89,7 @@
       <field name="perm_unlink" eval="True"/>
       <field name="perm_write" eval="True"/>
       <field name="perm_create" eval="True"/>
-      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+      <field name="group_id" ref="training_base.group_training_administration"/>
     </record>
     <record id="ir_model_access_gestionnaire_r4" model="ir.model.access">
       <field name="model_id" ref="training_base.model_learning_teacher"/>
@@ -99,7 +99,7 @@
       <field name="perm_unlink" eval="True"/>
       <field name="perm_write" eval="True"/>
       <field name="perm_create" eval="True"/>
-      <field name="group_id" ref="training_base.res_groups_gestionnaire_r0"/>
+      <field name="group_id" ref="training_base.group_training_administration"/>
     </record>
   </data>
 </openerp>

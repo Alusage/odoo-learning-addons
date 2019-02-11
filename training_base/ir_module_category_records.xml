@@ -2,8 +2,12 @@
 <openerp>
   <data>
     <record id="ir_module_category_formation_r0" model="ir.module.category">
+      <field name="name">Formation</field>
+
 </record>
     <record id="ir_module_category_cla_r0" model="ir.module.category">
+      <field name="name">CLA</field>
+
 </record>
   </data>
 </openerp>

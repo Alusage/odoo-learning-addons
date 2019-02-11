@@ -30,5 +30,9 @@
             <field name="name">training Student</field>
             <field name="category_id" ref="module_category_training"/>
         </record>
+        <record id="res_groups_utilisateur_r0" model="res.groups">
+            <field name="name">Utilisateur</field>
+            <field name="category_id" ref="module_category_training"/>
+        </record>
       </data>
 </odoo>

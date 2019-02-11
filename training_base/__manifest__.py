@@ -4,7 +4,7 @@
     "name": 'Training Base',
     "version": "11.0.1.0.2",
     "depends": [
-        '__export__',
+        #'__export__',
         'base',
         'event',
         'event_sale',
