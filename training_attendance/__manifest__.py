@@ -8,7 +8,7 @@
     'complexity': "easy",
     'author': 'Myceliandre',
     'website': 'http://www.myceliandre.fr',
-    'depends': ['training_timetable'],
+    'depends': ['training_base', 'training_timetable'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
