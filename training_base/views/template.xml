@@ -58,4 +58,10 @@
                 </div>
             </t>
         </template>
+<template id="cla_event" inherit_id="website_event.index" active="True" customize_show="True" name="Cla View">
+    <xpath expr="//a[@href='/event']" position="replace">
+        <a href="http://cla.univ-fcomte.fr">Nos formations</a>
+    </xpath>
+</template>
+
     </odoo>

@@ -19,6 +19,7 @@ class ProductTemplate(models.Model):
     our_value = fields.Text(string='Value', translate=True)
 
     contact_id = fields.Many2one('res.partner', string="Contact")
+    parent_domain_id = fields.Many2one('learning.domain',  related='domain_id.parent_id', store=True, string="Domain parent")
     domain_id = fields.Many2one('learning.domain', string="Domain")
     duration_info = fields.Char('Duration Info')
     price_info = fields.Char('Price info')
@@ -27,8 +28,17 @@ class ProductTemplate(models.Model):
     training_code_id = fields.Many2one('learning.training.code')
     subject_ids = fields.One2many('learning.subject', 'product_id', string='Subject(s)')
     learning_level = fields.One2many('learning.level', 'learning_id', string="Level(s)")
-
+    mediacla_id = fields.Many2one('learning.media_cla', string="MediaCLA")
     count_session = fields.Integer('Nb session', compute="_compute_session", readonly=True)
+    nb_emprunt = fields.Integer('Nb Emprunt')
+    nb_jour_autorise = fields.Integer('Nb jour autorisé')
+    mediacla_code = fields.Char(related='mediacla_id.code', store=True, string="Mediacla Code")
+    url_session = fields.Char("Url sessions", compute="_compute_url_session")
+    idf = fields.Integer('IDF CLA')
+
+    def _compute_url_session(self):
+        for record in self:
+            record.url_session = "http://www.formation-cla.univ-fcomte.fr/event?training_id=%s" % record.id
 
     def _compute_session(self):
         for record in self:
@@ -55,6 +65,12 @@ class LearningCR(models.Model):
 
 class LearningTrainingCode(models.Model):
     _name = 'learning.training.code'
+
+    name = fields.Char('Name')
+    code = fields.Char('Code', translate=False)
+
+class LearningMediacla(models.Model):
+    _name = 'learning.media_cla'
 
     name = fields.Char('Name')
     code = fields.Char('Code', translate=False)

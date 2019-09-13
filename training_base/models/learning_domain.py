@@ -19,6 +19,10 @@ class LearningDomain(models.Model):
             raise ValidationError(_('You cannot create recursive domain.'))
         return True
 
+class LearningLang(models.Model):
+    _name = 'learning.lang'
+
+    name = fields.Char('Name', translate=False)
 
 class LearningLevel(models.Model):
     _name = 'learning.level'

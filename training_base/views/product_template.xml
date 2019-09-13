@@ -11,6 +11,9 @@
             <field name="event_ok" position="after">
                     <field name="is_training"/>
             </field>
+                <field name="description" position="before">
+                    <field name="url_session" readonly="1"/>
+                </field>
             <button name="toggle_active" position="before">
                 <button name="%(ir_actions_act_window_session_r0)d"
                             type="action"
@@ -27,17 +30,23 @@
                 <group name="Informations">
                   <group>
                     <field name="domain_id"/>
-                    <field name="contact_id"/>
+		    <field name="contact_id"/>
                   </group>
                   <group>
                     <field name="price_info"/>
-                    <field name="duration_info"/>
+		    <field name="duration_info"/>
+		    <field name="training_code_id"/>
                   </group>
                 </group>
                 <group>
                   <field name="learning_level" widget="many2many_tags"/>
                 </group>
-                <div name="training_data">
+		<group name="service_mediacla" string="Service mediatheque">
+		  <field name="mediacla_id"/>
+		  <field name="nb_emprunt"/>
+		  <field name="nb_jour_autorise"/>
+		</group>
+		<div name="training_data">
                   <separator string="Presentation"/>
                   <field name="content" widget="html"/>
                     <separator string="Objectifs"/>
