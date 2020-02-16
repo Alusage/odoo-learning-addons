@@ -172,7 +172,7 @@ class HostelStudent(models.Model):
 
     @api.depends('status')
     def _get_hostel_user(self):
-        user_group = self.env.ref('school_hostel.group_hostel_user')
+        user_group = self.env.ref('training_hostel.group_hostel_user')
         grps = [group.id
                 for group in self.env['res.users'].browse(self._uid).groups_id]
         if user_group.id in grps:
@@ -189,7 +189,7 @@ class HostelStudent(models.Model):
 #    bed_type = fields.Many2one('bed.type', 'Bed Type')
     admission_date = fields.Datetime('Admission Date',
                                      help="Date of admission in hostel",
-                                     default=fields.Date.context_today)
+                                     default=fields.Datetime.now)
     discharge_date = fields.Datetime('Discharge Date',
                                      help="Date on which student discharge")
     paid_amount = fields.Float('Paid Amount',
@@ -252,15 +252,13 @@ class HostelStudent(models.Model):
     def onchnage_discharge_date(self):
         '''to calculate discharge date based on current date and duration'''
         if self.admission_date:
-            date = datetime.strptime(self.admission_date,
-                                     DEFAULT_SERVER_DATETIME_FORMAT)
+            date = self.admission_date
             self.discharge_date = date + rd(months=self.duration)
 
     @api.model
     def create(self, vals):
         res = super(HostelStudent, self).create(vals)
-        date = datetime.strptime(res.admission_date,
-                                 DEFAULT_SERVER_DATETIME_FORMAT)
+        date = res.admission_date
         res.discharge_date = date + rd(months=res.duration)
         vals.update({'discharge_date': res.discharge_date,
                      })
@@ -269,10 +267,9 @@ class HostelStudent(models.Model):
     @api.multi
     def write(self, vals):
         duration_months = vals.get('duration') or self.duration
-        addmissiondate = vals.get('admission_date') or self.admission_date
-        if addmissiondate and not vals.get('discharge_date'):
-            date = datetime.strptime(addmissiondate,
-                                     DEFAULT_SERVER_DATETIME_FORMAT)
+        admissiondate = vals.get('admission_date') or self.admission_date
+        if admissiondate and not vals.get('discharge_date'):
+            date = admissiondate
             discharge_date_student = date + rd(months=duration_months)
             vals.update({'discharge_date': discharge_date_student,
                          })
@@ -363,7 +360,7 @@ class HostelStudent(models.Model):
     @api.multi
     def print_fee_receipt(self):
         '''Method to print fee reciept'''
-        return self.env.ref('school_hostel.report_hostel_fee_reciept_qweb').\
+        return self.env.ref('training_hostel.report_hostel_fee_reciept_qweb').\
             report_action(self)
 
 

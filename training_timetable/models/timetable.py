@@ -18,22 +18,22 @@ class LearningSession(models.Model):
 
     name = fields.Char(compute='_compute_name', string='Name', store=True)
     timing_id = fields.Many2one(
-        'learning.timing', 'Timing', required=True, track_visibility="onchange")
+        'learning.timing', 'Timing',  track_visibility="onchange")
     start_datetime = fields.Datetime(
         'Start Time', required=True,
         default=lambda self: fields.Datetime.now())
     end_datetime = fields.Datetime(
         'End Time', required=True)
     course_id = fields.Many2one(
-        'event.event', 'Course', required=True)
+        'event.event', 'Course')
     teacher_id = fields.Many2one(
-        'learning.teacher', 'Teacher', required=True)
+        'learning.teacher', 'Teacher')
     batch_id = fields.Many2one(
-        'learning.batch', 'Batch', required=True)
+        'learning.batch', 'Batch')
     subject_id = fields.Many2one(
-        'learning.subject', 'Subject', required=True)
+        'learning.subject', 'Subject')
     classroom_id = fields.Many2one(
-        'learning.classroom', 'Classroom')
+        'learning.classroom', 'Classroom', required=True)
     color = fields.Integer('Color Index')
     type = fields.Char(compute='_compute_day', string='Day', store=True)
     state = fields.Selection(
@@ -53,13 +53,16 @@ class LearningSession(models.Model):
                 record.start_datetime).strftime("%A")
 
     @api.multi
-    @api.depends('teacher_id', 'subject_id', 'start_datetime')
+    @api.depends('teacher_id', 'subject_id', 'start_datetime', 'classroom_id', 'user_id')
     def _compute_name(self):
         for session in self:
             if session.teacher_id and session.subject_id \
                     and session.start_datetime:
                 session.name = session.teacher_id.name + ':' + \
                     session.subject_id.name + ':' + str(session.timing_id.name)
+            else:
+                if session.classroom_id and session.user_id:
+                    session.name = session.classroom_id.name + ":" + session.user_id.name
 
     # For record rule on student and dashboard
     @api.multi

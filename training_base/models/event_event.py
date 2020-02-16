@@ -18,6 +18,7 @@ class EventEvent(models.Model):
     datefinj_2_format = fields.Char(compute='_compute_date_format', string="Date j-2 format")
     date_begin_format = fields.Char(compute='_compute_date_format', string="Date debut format")
     date_end_format = fields.Char(compute='_compute_date_format', string="Date fin format")
+    batch_ids = fields.One2many('learning.batch', 'course_id', 'Groupe(s)')
 
     @api.depends('date_end', 'date_begin')
     def _compute_date_format(self):
@@ -39,7 +40,7 @@ class EventRegistration(models.Model):
     current_level = fields.Many2one('learning.level', string="Current Level")
     prepared_level = fields.Many2one('learning.level', string="Prepared Level")
     batch_id = fields.Many2one(
-        'learning.batch', 'Group')
+        'learning.batch', 'Group', domain="[('course_id', '=', event_id)]")
 
     @api.multi
     def confirm_registration(self):

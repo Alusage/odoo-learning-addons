@@ -9,8 +9,8 @@
                 <tree string="Batch">
                     <field name="name" />
                     <field name="code" />
-                    <field name="start_date" />
-                    <field name="end_date" />
+                    <field name="start_date" invisible="1"/>
+                    <field name="end_date" invisible="1" />
                     <field name="course_id" />
                 </tree>
             </field>
@@ -25,8 +25,8 @@
                         <group col="4" name="main">
                             <field name="name" />
                             <field name="code" />
-                            <field name="start_date" />
-                            <field name="end_date" />
+                            <field name="start_date" invisible="1"/>
+                            <field name="end_date" invisible="1"/>
                             <field name="course_id" />
                         </group>
                     </sheet>
@@ -41,14 +41,14 @@
                 <search string="Batch">
                     <field name="code"/>
                     <field name="name"/>
-                    <field name="start_date"/>
-                    <field name="end_date"/>
+		    <!--<field name="start_date"/>
+		    <field name="end_date"/> -->
                     <field name="course_id"/>
                     <newline/>
                     <group expand="0" string="Group By...">
-                        <filter name="start_date" string="Start Date" domain="[]"
+			    <!--<filter name="start_date" string="Start Date" domain="[]"
                             context="{'group_by':'start_date'}"/>
-                        <filter name="end_date" string="End Date" domain="[]" context="{'group_by':'end_date'}"/>
+			<filter name="end_date" string="End Date" domain="[]" context="{'group_by':'end_date'}"/>-->
                         <filter name="course" string="Course" domain="[]" context="{'group_by':'course_id'}"/>
                     </group>
                 </search>

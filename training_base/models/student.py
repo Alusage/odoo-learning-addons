@@ -31,6 +31,7 @@ def generate_login(first_name, family_name, login_exists_fn):
 class LearningStudent(models.Model):
     _name = 'learning.student'
     _inherits = {'res.partner': 'partner_id'}
+    _order = 'lastname asc'
 
     # blood_group = fields.Selection(
     #     [('A+', 'A+ve'), ('B+', 'B+ve'), ('O+', 'O+ve'), ('AB+', 'AB+ve'),
@@ -39,21 +40,13 @@ class LearningStudent(models.Model):
     # gender = fields.Selection(
     #     [('m', 'Male'), ('f', 'Female'),
     #      ('o', 'Other')], 'Gender')
-    birth_date = fields.Date('Birth Date', required=False)
-    gender = fields.Selection(
-        [('male', 'Male'), ('female', 'Female')], 'Gender', required=False)
-    nationality = fields.Many2one('res.country', 'Nationality')
-    visa_info = fields.Char('Visa Info', size=64)
-    id_number = fields.Char('ID Card Number', size=64)
-    already_partner = fields.Boolean('Already Partner')
-    mothertongue_id = fields.Many2one('learning.lang', string="Langue maternelle")
     partner_id = fields.Many2one(
         'res.partner', 'Partner', required=True, ondelete="cascade")
     is_student = fields.Boolean(default=True)
     count_session = fields.Integer('Session', compute="_compute_session")
     course_detail_ids = fields.One2many('event.registration', 'student_id',
                                         'Course Details')
-    cla_login = fields.Char('Login CLA', size=8)
+    already_partner = fields.Boolean('Already Partner')
 
     @api.model
     def create(self, values):

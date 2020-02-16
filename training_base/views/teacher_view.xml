@@ -137,7 +137,7 @@
             <field name="priority" eval="8" />
             <field name="arch" type="xml">
                 <search string="teacher">
-                    <field name="name" />
+                    <field name="name" filter_domain="['|','|',('display_name','ilike',self),('ref','=',self),('email','ilike',self)]"/>
                     <newline />
                     <group expand="0" string="Group By...">
                         <filter name="nationality" string="Nationality" domain="[]"

@@ -8,12 +8,6 @@ class LearningTeacher(models.Model):
 
     partner_id = fields.Many2one(
         'res.partner', 'Partner', required=True, ondelete="cascade")
-    birth_date = fields.Date('Birth Date', required=False)
-    gender = fields.Selection(
-        [('male', 'Male'), ('female', 'Female')], 'Gender', required=False)
-    nationality = fields.Many2one('res.country', 'Nationality')
-    visa_info = fields.Char('Visa Info', size=64)
-    id_number = fields.Char('ID Card Number', size=64)
     login = fields.Char(
         'Login', related='partner_id.user_id.login', readonly=1)
     last_login = fields.Datetime(
@@ -26,7 +20,7 @@ class LearningTeacher(models.Model):
     @api.constrains('birth_date')
     def _check_birthdate(self):
         for record in self:
-            if record.birth_date > fields.Date.today():
+            if record.birth_date and record.birth_date > fields.Date.today():
                 raise ValidationError(_(
                     "Birth Date can't be greater than current date!"))
 
