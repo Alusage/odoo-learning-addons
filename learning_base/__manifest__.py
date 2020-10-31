@@ -2,7 +2,7 @@
 
 {
     "name": 'Learning Base',
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.0.2",
     "depends": [
         #'__export__',
         'base',
@@ -20,11 +20,11 @@
     "author": "Nicolas JEUDY, Odoo Community Association (OCA)",
     "installable": True,
     "data": [
+        'security/learning_security.xml',
+        'security/ir.model.access.csv',
         'ir_actions_act_window_records.xml',
         'ir_ui_menu_records.xml',
         'ir_module_category_records.xml',
-        'security/learning_security.xml',
-        'security/ir.model.access.csv',
         'views/product_template.xml',
         'views/event_event.xml',
         'views/res_company.xml',

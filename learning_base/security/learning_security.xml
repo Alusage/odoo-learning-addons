@@ -9,12 +9,6 @@
             <field name="sequence">22</field>
         </record>
 
-        <record id="group_learning_administration" model="res.groups">
-            <field name="name">Learning Administrator</field>
-            <field name="category_id" ref="module_category_learning"/>
-            <field name="implied_ids" eval="[(4, ref('res_groups_utilisateur_r0')), (4, ref('group_learning_backoffice')), (4, ref('website.group_website_publisher'))]"/>
-            <field name="users" eval="[(4, ref('base.user_root'))]"/>
-        </record>
 
         <record id="group_learning_backoffice" model="res.groups">
             <field name="name">Learning Backoffice</field>
@@ -36,6 +30,12 @@
             <field name="category_id" ref="module_category_learning"/>
         </record>
 
+        <record id="group_learning_administration" model="res.groups">
+            <field name="name">Learning Administrator</field>
+            <field name="category_id" ref="module_category_learning"/>
+            <field name="implied_ids" eval="[(4, ref('res_groups_utilisateur_r0')), (4, ref('group_learning_backoffice')), (4, ref('website.group_website_publisher'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
         <!-- ir.rules -->
 
         <record id="learning_product_rule_portal" model="ir.rule">
