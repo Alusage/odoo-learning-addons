@@ -23,10 +23,7 @@ class HrEmployee(models.Model):
     name = fields.Char("Name", compute="_compute_name", store="True")
     employee_id = fields.Many2one("hr.employee", string="Speaker")
     discipline_id = fields.Many2one("event.discipline", string="Discipline")
-    standard_price = fields.Float(
-        "Standard Price", digits=dp.get_precision("Product Price")
-    )
-    extra_price = fields.Float("Extra Price", digits=dp.get_precision("Product Price"))
+    working_hours = fields.Float("Working hours")
     has_extra = fields.Boolean("Has Extra ?")
     event_id = fields.Many2one("event.event", string="Event")
     stage_id = fields.Many2one(

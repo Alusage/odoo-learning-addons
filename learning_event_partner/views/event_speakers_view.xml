@@ -50,8 +50,6 @@
                     <field name="name"/>
                     <field name="employee_id"/>
                     <field name="stage_id"/>
-                    <field name="standard_price"/>
-                    <field name="extra_price"/>
                     <field name="has_extra" />
                     <field name="discipline_id"/>
                     <templates>
@@ -91,9 +89,8 @@
                     <field name="employee_id" />
                     <field name="discipline_id" /> 
                     <field name="event_id" invisible="1" />
-                    <field name="standard_price"/>
                     <field name="has_extra"/>
-                    <field name="extra_price" attrs="{'required': [('has_extra', '=', True)]}"/>
+                    <field name="working_hours" widget="float_time"/>
                 </tree>
             </field>
         </record>
@@ -107,15 +104,11 @@
                         <group>
                             <field name="name" readonly="1"/>
                             <group>
-                                <field name="employee_id" />
+                                <field name="employee_id" required="1"/>
                                 <field name="discipline_id" />
-                                <field name="standard_price"/>
-                            </group>
-                            <group>
                                 <field name="has_extra"/>
-                                <field name="extra_price" attrs="{'invisible': [('has_extra', '=', False)]}" />
+                                <field name="working_hours" widget="float_time"/>
                             </group>
-                            
                         </group>
                     </sheet>
                     <div class="oe_chatter">
