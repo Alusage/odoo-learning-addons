@@ -1,7 +1,6 @@
 # Copyright 2018 Nicolas JEUDY
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 import logging
-import datetime
 from odoo import api, fields, models, _
 
 _logger = logging.getLogger(__name__)
@@ -26,3 +25,9 @@ class EventDiscipline(models.Model):
     _description = "Discipline"
 
     name = fields.Char("Name")
+
+
+class EmployeeDiscipline(models.Model):
+    _inherit = "hr.employee"
+
+    discipline_ids = fields.Many2many("event.discipline", string="Disciplines")

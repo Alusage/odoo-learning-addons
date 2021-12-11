@@ -9,12 +9,13 @@
         "event",
         "hr",
     ],
-    "author": "Nicolas JEUDY, Odoo Community Association (OCA)",
+    "author": "Nicolas JEUDY",
     "installable": True,
     "data": [
         "views/event_menu_view.xml",
         "views/event_speakers_view.xml",
         "views/event_event_view.xml",
+        "views/hr_employee_views.xml",
         "security/ir.model.access.csv",
     ],
 }
