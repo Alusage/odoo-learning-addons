@@ -33,6 +33,9 @@ class HrEmployee(models.Model):
         group_expand="_read_group_stage_ids",
         tracking=True,
     )
+    discipline_ids = fields.Many2many(
+        "event.discipline", string="discipline", related="employee_id.discipline_ids"
+    )
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
