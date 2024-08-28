@@ -24,6 +24,7 @@
       </field>
       <field name="detailed_type" position="attributes">
         <attribute name="attrs">{'readonly':[('is_learning','=',True)]}</attribute>
+        <attribute name="force_save">1</attribute>
       </field>
 
       <page name="sales" position="after">
